@@ -1,5 +1,4 @@
-import React from "react";
-import tmdbLogo from "../../assets/images/tmdb.svg";
+import tmdbLogo from "@/assets/images/tmdb.svg";
 import * as S from "./footer.styles";
 const Footer = () => {
   return (

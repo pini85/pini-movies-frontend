@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Container, HandleBars } from "./Hamurger.styles";
-import Navigation from "components/Navigation/Navigation.component";
+import Navigation from "@/components/ui/Navigation/Navigation.component";
 
 const Hamburger = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);

@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useForm, FormProvider } from "react-hook-form";
-import useGetSuggestions from "hooks/reactQuery/useGetSuggestions";
-import Suggestion from "components/Suggestions/Suggestions";
-import Button from "components/Button/Button";
-import Input from "components/Input/Input.component";
+import useGetSuggestions from "@/hooks/reactQuery/useGetSuggestions";
+import Suggestion from "@/components/ui/Suggestions/Suggestions";
+import Button from "@/components/ui/Button/Button";
+import Input from "@/components/ui/Input/Input.component";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");

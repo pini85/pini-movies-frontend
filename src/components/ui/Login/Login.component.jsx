@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { setUser } from "../../../redux/slices/user.slice.js";
+import { setUser } from "@/redux/slices/user.slice";
 import { useDispatch, useSelector } from "react-redux";
-import useGoogleLogin from "hooks/useGoogleLogin";
-import Button from "components/Button/Button";
+import useGoogleLogin from "@/hooks/useGoogleLogin";
+import Button from "@/components/ui/Button/Button";
 const Login = () => {
   let url =
     process.env.NODE_ENV === "production"

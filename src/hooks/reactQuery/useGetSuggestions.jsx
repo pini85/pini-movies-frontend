@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import useDebounce from "hooks/useDebounce.hooks";
-import { tmdbQueryApi, tmdbCastId } from "apis/tmdbApi";
+import { useQuery, queryOptions } from "@tanstack/react-query";
+import useDebounce from "@/hooks/useDebounce.hooks";
+import { tmdbQueryApi, tmdbCastId } from "@/apis/tmdbApi";
 const useGetSuggestions = (
   searchQuery,
   showMovies,
@@ -13,21 +13,23 @@ const useGetSuggestions = (
   const [suggestions, setSuggestions] = useState({});
   const debouncedMovieSearch = useDebounce(searchQuery, 100);
   const debouncedCastSearch = useDebounce(searchQuery, 100);
-  const { data: movies } = useQuery(
-    ["movie-search", debouncedMovieSearch],
-    () => tmdbQueryApi(debouncedMovieSearch, 1),
-    {
+  const getMovieSearchQuery = () => {
+    return queryOptions({
+      queryKey: ["movie-search", debouncedMovieSearch],
+      queryFn: () => tmdbQueryApi(debouncedMovieSearch, 1),
       enabled:
         !!debouncedMovieSearch && !!showMovies && searchQuery?.length > 0,
-    }
-  );
-  const { data: casts } = useQuery(
-    ["casts-search", debouncedCastSearch],
-    () => tmdbCastId(debouncedCastSearch),
-    {
+    });
+  };
+  const getCastSearchQuery = () => {
+    return queryOptions({
+      queryKey: ["casts-search", debouncedCastSearch],
+      queryFn: () => tmdbCastId(debouncedCastSearch),
       enabled: !!debouncedCastSearch && !!showCast && searchQuery?.length > 0,
-    }
-  );
+    });
+  };
+  const { data: movies } = useQuery(getMovieSearchQuery());
+  const { data: casts } = useQuery(getCastSearchQuery());
   const removeDuplicates = (castList) => {
     if (!castList) return;
     const uniqueNames = new Set();

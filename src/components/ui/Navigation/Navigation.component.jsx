@@ -1,11 +1,11 @@
 import React from "react";
 import * as S from "./Navigation.styles";
-import Customize from "components/Customize/Customize.component";
-import Search from "components/Search/Search.component";
-import LightSwitch from "components/LightSwitch/LightSwitch.component";
+import Customize from "@/components/ui/Customize/Customize.component";
+import Search from "@/components/ui/Search/Search.component";
+import LightSwitch from "@/components/ui/LightSwitch/LightSwitch.component";
 import { Link } from "react-router-dom";
-import useWidth from "../../../hooks/useWidth.hooks";
-import { navLinks } from "utlis/applicationData";
+import useWidth from "@/hooks/useWidth.hooks";
+import { navLinks } from "@/utlis/applicationData";
 const Navigation = ({ setOpen }) => {
   const width = useWidth().width;
   const handleClick = (e) => {

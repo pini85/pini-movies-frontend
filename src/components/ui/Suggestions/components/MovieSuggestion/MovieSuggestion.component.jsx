@@ -1,14 +1,15 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm, faStar } from '@fortawesome/free-solid-svg-icons';
-import useWidth from 'hooks/useWidth.hooks';
-import * as S from './movieSuggestion.styles.js';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilm, faStar } from "@fortawesome/free-solid-svg-icons";
+import useWidth from "@/hooks/useWidth.hooks";
+import * as S from "./movieSuggestion.styles.js";
 const MovieSuggestion = ({ movie, handleClick }) => {
   const width = useWidth().width;
   return (
-
     <S.CardContainer onClick={() => handleClick(movie)} width={width}>
-
-      <S.Img src={`https://image.tmdb.org/t/p/w92/${movie.poster_path}`} alt="" />
+      <S.Img
+        src={`https://image.tmdb.org/t/p/w92/${movie.poster_path}`}
+        alt=""
+      />
       <S.CardWrapper>
         <S.Title> {movie.title}</S.Title>
         <S.IconAndYearContainer>
