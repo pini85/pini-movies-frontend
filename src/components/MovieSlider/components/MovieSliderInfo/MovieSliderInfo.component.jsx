@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import Button from "components/Button/Button";
+import Button from "@/components/Button/Button";
 
 import * as S from "./MovieSliderInfo.styles";
 

@@ -1,21 +1,10 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { store } from "./redux/configureStore";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import queryConfig from "./services/reactQuery/config.js";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-// import "./index.css";
-import "./styles/base.css";
-import "./themes/themes.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import App from "./App";
+
+import App from "./app/index";
 import { GlobalStyle } from "./globalStyles.styles";
-const queryClient = new QueryClient(queryConfig);
 
 // !enable mocking service worker in development
 // if (process.env.NODE_ENV === 'development') {
@@ -23,17 +12,21 @@ const queryClient = new QueryClient(queryConfig);
 //   worker.start();
 //   worker.printHandlers();
 // }
-const container = document.getElementById("root");
-const root = createRoot(container);
+const root = document.getElementById("root");
+if (!root) throw new Error("No root element found");
 
-root.render(
-  <QueryClientProvider client={queryClient}>
-    <Provider store={store}>
-      <GlobalStyle />
+createRoot(root).render(
+  // <QueryClientProvider client={queryClient}>
+  //   <Provider store={store}>
+  <>
+    <GlobalStyle />
+    <React.StrictMode>
       <App />
-    </Provider>
-    <ReactQueryDevtools />
-  </QueryClientProvider>
+    </React.StrictMode>
+  </>
+  //   </Provider>
+  //   <ReactQueryDevtools />
+  // </QueryClientProvider>
 );
 if (process.env.NODE_ENV === "production") {
   console.log = function () {};
