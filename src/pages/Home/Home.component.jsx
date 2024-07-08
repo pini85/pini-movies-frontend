@@ -3,12 +3,12 @@ import { queryOptions, useQuery } from "@tanstack/react-query";
 
 import { tmdbMovieSliderApi, tmdbNewestTodayApi } from "@/apis/tmdbApi";
 
-import Carousel from "@/components/Carousel/carousel.component";
-import DisplayMovieList from "@/components/DisplayMovieList/DisplayMovieList.jsx";
-import MovieSlider from "@/components/MovieSlider/MovieSlider.component";
+import Carousel from "@/components/ui/Carousel/carousel.component";
+import DisplayMovieList from "@/components/ui/DisplayMovieList/DisplayMovieList.jsx";
+import MovieSlider from "@/components/ui/MovieSlider/MovieSlider.component";
 
 import * as S from "./Home.styles";
-import Button from "@/components/Button/Button";
+import Button from "@/components/ui/Button/Button";
 import { Link } from "react-router-dom";
 
 export const Home = () => {

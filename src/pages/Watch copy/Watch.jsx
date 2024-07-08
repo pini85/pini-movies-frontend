@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import WatchTorrent from './components/WatchTorrent';
+import WatchTorrent from "./components/WatchTorrent";
 
-import { getTorrents } from '../../apis/constants';
+import { getTorrents } from "../../apis/constants";
 
-import { getTorrentStream } from 'apis/torrents';
-import { useParams } from 'react-router-dom';
-import { tmdbIdApi } from 'apis/tmdbApi.ts';
+import { getTorrentStream } from "apis/torrents";
+import { useParams } from "react-router-dom";
+import { tmdbIdApi } from "apis/tmdbApi.ts";
 
-import 'video.js/dist/video-js.css';
+import "video.js/dist/video-js.css";
 
-import * as S from './Watch.styles.js';
-import CategoryTitle from '../../components/CategoryTitle/CategoryTitle.component';
+import * as S from "./Watch.styles.js";
+import CategoryTitle from "../../components/ui/CategoryTitle/CategoryTitle.component";
 
 const Watch = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [selectedTorrent, setSelectedTorrent] = useState([]);
   const [torrents, setTorrents] = useState(null);
   const [file, setFile] = useState(null);
@@ -39,7 +39,7 @@ const Watch = () => {
     const data = async () => {
       const data = await getTorrentStream(selectedTorrent.magnet);
       const videoFile = data.files.find((file) => {
-        return file.type.includes('video');
+        return file.type.includes("video");
       });
       setFile(data);
     };
@@ -85,7 +85,9 @@ const Watch = () => {
 
         return (
           <>
-            <S.Magnet onClick={() => handleTorrent(torrent)}>Link {i + 1}</S.Magnet>
+            <S.Magnet onClick={() => handleTorrent(torrent)}>
+              Link {i + 1}
+            </S.Magnet>
             <h5>peers: {torrent.peers}</h5>
             <h5>seeds: {torrent.seeds}</h5>
             <h5>size: {torrent.size}</h5>

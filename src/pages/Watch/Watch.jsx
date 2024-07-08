@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { getTorrents } from '../../apis/constants';
+import { getTorrents } from "../../apis/constants";
 
-import { useParams } from 'react-router-dom';
-import { tmdbIdApi } from 'apis/tmdbApi.ts';
+import { useParams } from "react-router-dom";
+import { tmdbIdApi } from "apis/tmdbApi.ts";
 
-import 'video.js/dist/video-js.css';
+import "video.js/dist/video-js.css";
 
-import * as S from './Watch.styles.js';
-import CategoryTitle from '../../components/CategoryTitle/CategoryTitle.component';
-import SpinnerContainer from 'components/Spinners/SpinnerContainer/SpinnerContainer';
-import Spin from 'components/Spinners/Spin/Spin.component';
+import * as S from "./Watch.styles.js";
+import CategoryTitle from "../../components/ui/CategoryTitle/CategoryTitle.component";
+import SpinnerContainer from "components/Spinners/SpinnerContainer/SpinnerContainer";
+import Spin from "components/Spinners/Spin/Spin.component";
 
 const Watch = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [torrents, setTorrents] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [file, setFile] = useState(null);
@@ -67,8 +67,8 @@ const Watch = () => {
       {!isLoading && (
         <>
           <S.Attention>
-            When downloading the magnet link use a torrent streaming app like Stremio or
-            WebTorrent to watch it.
+            When downloading the magnet link use a torrent streaming app like
+            Stremio or WebTorrent to watch it.
           </S.Attention>
           <S.MagnetContainer>{renderMagnets()}</S.MagnetContainer>)
         </>

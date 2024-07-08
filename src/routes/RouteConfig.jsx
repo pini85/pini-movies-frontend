@@ -11,23 +11,23 @@ import SpinnerContainer from "components/Spinners/SpinnerContainer/SpinnerContai
 const RouteConfig = () => {
   const user = useSelector((state) => state?.user?.user);
   const ShowMovie = lazy(() =>
-    import("../components/ShowMovie/ShowMovie.component.jsx")
+    import("../components/ui/ShowMovie/ShowMovie.component.jsx")
   );
   const Movies = lazy(() => import("../pages/Movies/Movies.component.jsx"));
   const TvShows = lazy(() =>
-    import("../components/TvShows/TvShows.component.jsx")
+    import("../components/ui/TvShows/TvShows.component.jsx")
   );
   const MovieListSearch = lazy(() =>
-    import("../components/MovieListSearch/MovieListSearch.jsx")
+    import("../components/ui/MovieListSearch/MovieListSearch.jsx")
   );
   const AdvancedSearchNew = lazy(() =>
     import("../pages/AdvancedSearch/AdvancedSearchNew.jsx")
   );
   const PopularActors = lazy(() =>
-    import("../components/PopularActors/PopularActors.component.jsx")
+    import("../components/ui/PopularActors/PopularActors.component.jsx")
   );
   const ActorMovies = lazy(() =>
-    import("../components/ActorMovies/ActorMovies.component.tsx")
+    import("../components/ui/ActorMovies/ActorMovies.component.jsx")
   );
   const AIGeneratedMovies = lazy(() =>
     import("pages/AIGeneratedMovies/AIGeneratedMovies.jsx")
@@ -42,7 +42,7 @@ const RouteConfig = () => {
   );
   const Settings = lazy(() => import("../pages/Settings/Settings.jsx"));
   const SavedMovies = lazy(() =>
-    import("../components/SavedMovies/SavedMovies.component.jsx")
+    import("../components/ui/SavedMovies/SavedMovies.component.jsx")
   );
   const Watch = lazy(() => import("../pages/Watch/Watch.jsx"));
 

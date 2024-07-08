@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Pagination from "../components/Pagination/Pagination.component";
+import Pagination from "../components/ui/Pagination/Pagination.component";
 
 const usePagination = (api, currentPage, setCurrentPage, active) => {
   const fetchApi = api[0];
@@ -21,15 +21,15 @@ const usePagination = (api, currentPage, setCurrentPage, active) => {
     setCurrentPage(Math.max(currentPage - 1, 1));
   };
 
-  const jump = page => {
+  const jump = (page) => {
     const pageNumber = Math.max(1, page);
     setCurrentPage(Math.min(pageNumber, maxPage));
   };
-  const first = setCount => {
+  const first = (setCount) => {
     setCurrentPage(1);
     setCount(1);
   };
-  const last = setCount => {
+  const last = (setCount) => {
     setCurrentPage(maxPage);
     setCount(maxPage - 19);
   };
