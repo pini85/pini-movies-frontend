@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import BouncingDvd from "components/Spinners/BouncingDvd/BouncingDvd.component";
-import Film from "components/Spinners/Film/Film.component";
-import Spin from "components/Spinners/Spin/Spin.component";
-import useWidth from "../../../hooks/useWidth.hooks";
+import BouncingDvd from "@/components/ui/Spinners/BouncingDvd/BouncingDvd.component";
+import Film from "@/components/ui/Spinners/Film/Film.component";
+import Spin from "@/components/ui/Spinners/Spin/Spin.component";
+import useWidth from "@/hooks/useWidth.hooks";
 import { Container } from "./LoadingScreen.styles";
 const LoadingScreen = () => {
   const spinner = useSelector((state) => state.ui.spinner);

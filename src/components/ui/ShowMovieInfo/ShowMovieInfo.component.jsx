@@ -1,7 +1,7 @@
-import React from 'react';
-import './styles.css';
-import CirclePercentage from 'components/CirclePercentage/CirclePercentage.component';
-import * as S from './showInfo.styles';
+import React from "react";
+import "./styles.css";
+import CirclePercentage from "@/components/ui/CirclePercentage/CirclePercentage.component";
+import * as S from "./showInfo.styles";
 
 const ShowMovieInfo = ({ data }) => {
   return (

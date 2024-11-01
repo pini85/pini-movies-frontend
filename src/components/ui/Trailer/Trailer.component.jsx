@@ -1,30 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
-import { tmdbTrailersApi } from 'apis/tmdbApi';
-import YouTube from 'react-youtube';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm } from '@fortawesome/free-solid-svg-icons';
-import Modal from 'components/Modal/Modal.component';
-import Carousel from 'components/Carousel/carousel.component';
-import useWidth from '../../hooks/useWidth.hooks';
-import * as S from './Trailer.styles';
-import './youtube.css';
+import React, { useState, useEffect } from "react";
+import { queryOptions, useQuery } from "@tanstack/react-query";
+
+import { tmdbTrailersApi } from "@/apis/tmdbApi";
+import YouTube from "react-youtube";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilm } from "@fortawesome/free-solid-svg-icons";
+import Modal from "@/components/ui/Modal/Modal.component";
+import Carousel from "@/components/ui/Carousel/carousel.component";
+import useWidth from "@/hooks/useWidth.hooks";
+import * as S from "./Trailer.styles";
+import "./youtube.css";
 
 const Trailer = ({ poster, colors, id }) => {
   const width = useWidth().width;
 
   const [isToggled, setToggled] = useState(false);
 
-  const { data: trailers, isLoading } = useQuery(
-    ['trailer', id],
-    () => tmdbTrailersApi(id),
-    { enabled: isToggled }
-  );
+  // const { data: trailers, isLoading } = useQuery(
+  //   ["trailer", id],
+  //   () => tmdbTrailersApi(id),
+  //   { enabled: isToggled }
+  // );
+  const getTrailersQuery = (id) =>
+    queryOptions({
+      queryKey: ["trailer", id],
+      queryFn: () => tmdbTrailersApi(id),
+    });
+
+  const { data: trailers, isLoading } = useQuery({
+    ...getTrailersQuery(id),
+    enabled: isToggled,
+  });
 
   const trailersYouTube = () => {
     const optsYouTube = {
-      height: '450px',
-      width: '450px',
+      height: "450px",
+      width: "450px",
       playerVars: {
         autoplay: 0,
       },
@@ -42,7 +53,7 @@ const Trailer = ({ poster, colors, id }) => {
   const handleClick = (e) => {
     setToggled(true);
     window.scrollTo(0, 0);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   return (
@@ -74,7 +85,7 @@ const Trailer = ({ poster, colors, id }) => {
           ) : (
             <FontAwesomeIcon
               icon={faFilm}
-              style={{ fontSize: '10rem', color: 'red' }}
+              style={{ fontSize: "10rem", color: "red" }}
             />
           )}
         </Modal>

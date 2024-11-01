@@ -1,8 +1,8 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ReviewsCarousel from "components/ReviewsCarousel/ReviewsCarousel.component";
+import ReviewsCarousel from "@/components/ui/ReviewsCarousel/ReviewsCarousel.component";
 
-import Carousel from "components/Carousel/carousel.component";
+import Carousel from "@/components/ui/Carousel/carousel.component";
 import * as S from "./Reviews.styles";
 
 const Reviews = ({ colors, reviews }) => {

@@ -1,7 +1,7 @@
 import React from "react";
-import Carousel from "components/Carousel/carousel.component";
-import MovieCastCarousel from "components/MovieCastCarousel/MovieCastCarousel.component";
-import useWidth from "../../../hooks/useWidth.hooks";
+import Carousel from "@/components/ui/Carousel/carousel.component";
+import MovieCastCarousel from "@/components/ui/MovieCastCarousel/MovieCastCarousel.component";
+import useWidth from "@/hooks/useWidth.hooks";
 
 const MovieCast = ({ cast, colors }) => {
   const width = useWidth().width;

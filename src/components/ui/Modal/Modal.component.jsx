@@ -1,7 +1,7 @@
 import React from "react";
 import { compose } from "redux";
 import { AnimatePresence, motion } from "framer-motion";
-import CategoryTitle from "components/CategoryTitle/CategoryTitle.component";
+import CategoryTitle from "@/components/ui/CategoryTitle/CategoryTitle.component";
 
 import * as S from "./Modal.styles";
 const Modal = ({

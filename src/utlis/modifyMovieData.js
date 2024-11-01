@@ -1,11 +1,10 @@
-import LoginComponent from 'components/Login/Login.component';
-import * as Vibrant from 'node-vibrant';
+import * as Vibrant from "node-vibrant";
 
 const modifyMovieData = async (tmdbData, omdbData, credits, reviews) => {
   const imageTarget = () => {
     return tmdbData.backdrop_path
       ? `https://image.tmdb.org/t/p/w185//${tmdbData.backdrop_path}`
-      : 'https://upload.wikimedia.org/wikipedia/commons/c/c0/White_color_Page.jpg';
+      : "https://upload.wikimedia.org/wikipedia/commons/c/c0/White_color_Page.jpg";
   };
   const ratings = () => {
     switch (omdbData.Ratings.length) {
@@ -13,7 +12,7 @@ const modifyMovieData = async (tmdbData, omdbData, credits, reviews) => {
         return [
           {
             imdb: omdbData.Ratings[0],
-            img: 'https://i.ibb.co/dth8xgq/imdb.png',
+            img: "https://i.ibb.co/dth8xgq/imdb.png",
             url: `https://www.imdb.com/title/${tmdbData.imdb_id}/`,
           },
         ];
@@ -22,28 +21,28 @@ const modifyMovieData = async (tmdbData, omdbData, credits, reviews) => {
         return [
           {
             rating: omdbData.Ratings[0],
-            img: 'https://i.ibb.co/dth8xgq/imdb.png',
+            img: "https://i.ibb.co/dth8xgq/imdb.png",
             url: `https://www.imdb.com/title/${tmdbData.imdb_id}/`,
           },
           {
             rating: omdbData.Ratings[1],
-            img: 'https://i.ibb.co/BCy3STv/tomato.png',
+            img: "https://i.ibb.co/BCy3STv/tomato.png",
           },
         ];
       case 3:
         return [
           {
             rating: omdbData.Ratings[0],
-            img: 'https://i.ibb.co/dth8xgq/imdb.png',
+            img: "https://i.ibb.co/dth8xgq/imdb.png",
             url: `https://www.imdb.com/title/${tmdbData.imdb_id}/`,
           },
           {
             rating: omdbData.Ratings[1],
-            img: 'https://i.ibb.co/BCy3STv/tomato.png',
+            img: "https://i.ibb.co/BCy3STv/tomato.png",
           },
           {
             rating: omdbData.Ratings[2],
-            img: 'https://i.ibb.co/5jVT2rK/meta-critic.png',
+            img: "https://i.ibb.co/5jVT2rK/meta-critic.png",
           },
         ];
     }
